@@ -9,7 +9,7 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
+	"appid": "wxc6fb92041d86615a",
 	"projectname": "yimajiadao",
 	"condition": {
 		"search": {
