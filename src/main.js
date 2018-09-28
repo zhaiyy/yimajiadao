@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App';
 import '../static/css/weui.css';
-import '../static/css/comment.css';
+import '../static/css/comment.scss';
 
 Vue.config.productionTip = false;
 App.mpType = 'app';
@@ -17,7 +17,7 @@ export default {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: '女神月历',
       navigationBarTextStyle: 'black',
     },
     tabBar: {
@@ -29,20 +29,20 @@ export default {
       list: [{
         pagePath: 'pages/index/main',
         text: '记录',
-        iconPath: 'static/images/nav-record.png',
-        selectedIconPath: 'static/images/nav-record-select.png'
+        iconPath: 'static/img/nav-record.png',
+        selectedIconPath: 'static/img/nav-record-select.png'
       },
         {
           pagePath: 'pages/logs/main',
           text: '日历',
-          iconPath: 'static/images/nav-calender.png',
-          selectedIconPath: 'static/images/nav-calender-select.png'
+          iconPath: 'static/img/nav-calender.png',
+          selectedIconPath: 'static/img/nav-calender-select.png'
         },
         {
           pagePath: 'pages/logs/main',
           text: '我',
-          iconPath: 'static/images/nav-my.png',
-          selectedIconPath: 'static/images/nav-my-select.png'
+          iconPath: 'static/img/nav-my.png',
+          selectedIconPath: 'static/img/nav-my-select.png'
         }
       ]
     }

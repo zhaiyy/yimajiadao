@@ -100,7 +100,7 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
-    ]
+      ]
   },
   plugins: [
     new MpvuePlugin()
