@@ -11,11 +11,14 @@
         </div>
       </div>
     </div>
+    <div class="tc mt100">
+      <div class="about-btn">资料设置</div>
+      <div class="about-btn">经期记录</div>
+    </div>
   </div>
 </template>
 
 <script>
-import card from '@/components/card';
 
 export default {
   data() {
@@ -26,7 +29,6 @@ export default {
   },
 
   components: {
-    card,
   },
 
   methods: {
@@ -82,6 +84,15 @@ export default {
       width: 130rpx;
       border:1px solid red;
     }
+  }
+  .about-btn{
+    width: 500rpx;
+    text-align: left;
+    padding: 15rpx 50rpx;
+    background: #F9F6F9;
+    color: #aaa;
+    border-radius: 50rpx;
+    margin: 40rpx auto;
   }
 
 </style>
