@@ -13,7 +13,7 @@ export default {
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
-    pages: ['pages/logs/main', '^pages/index/main'],
+    pages: ['pages/logs/main', '^pages/about/main', 'pages/index/main'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -28,7 +28,7 @@ export default {
       /* eslint-disable */
       list: [{
         pagePath: 'pages/index/main',
-        text: '记录',
+        text: '主页',
         iconPath: 'static/img/nav-record.png',
         selectedIconPath: 'static/img/nav-record-select.png'
       },
@@ -39,7 +39,7 @@ export default {
           selectedIconPath: 'static/img/nav-calender-select.png'
         },
         {
-          pagePath: 'pages/logs/main',
+          pagePath: 'pages/about/main',
           text: '我',
           iconPath: 'static/img/nav-my.png',
           selectedIconPath: 'static/img/nav-my-select.png'
