@@ -1,0 +1,30 @@
+.flex-warp{
+  display: flex;
+}
+.flex-item{
+  flex: 1;
+}
+.el-date-picker {
+  width: 750rpx;
+}
+.el-date-picker .el-picker-panel__content {
+  width: 90%;
+  text-align: center;
+}
+.bg_green span{
+  background-color: #67C23A;
+  color:#fff;
+}
+.bg_orange span{
+  background-color: #E6A23C;
+  color:#fff;
+}
+.bg_red span{
+  background-color: #F56C6C;
+  color:#fff;
+}
+.bg_disable span{
+  background-color: #f5f7fa;
+  color:#c0c4cc;
+  cursor: not-allowed;
+}

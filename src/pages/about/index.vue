@@ -35,7 +35,7 @@ export default {
     switchChange() {
     },
     bindViewTap() {
-      const url = '../logs/main';
+      const url = '../calendar/main';
       wx.navigateTo({ url });
     },
     getUserInfo() {
