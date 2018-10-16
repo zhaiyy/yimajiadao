@@ -5,7 +5,7 @@
   flex: 1;
 }
 .el-date-picker {
-  width: 750rpx;
+  width: 745rpx;
 }
 .el-date-picker .el-picker-panel__content {
   width: 90%;
@@ -31,7 +31,8 @@
 .today {
   position: absolute;
   color: #F56C6C;
-  top: 28rpx;
+  top: 44rpx;
+  font-size: 16rpx;
 }
 .date-picker {
   margin: 0 auto;
@@ -45,4 +46,24 @@
 }
 .back-today-btn{
   position: absolute;
+}
+.date-current {
+  border-radius: 50%;
+  border: 1px solid #F56C6C
+}
+.date-jingqi {
+  background-color: #F56C6C;
+  border-radius: 50%;
+  color: #fff;
+}
+.date-yuce {
+  background-color: #f5989b;
+  border-radius: 50%;
+  color: #fff;
+}
+.date-anquan {
+  color: #0bb20c;
+}
+.date-yiyun {
+  color: #b24aa6;
 }

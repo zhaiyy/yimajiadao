@@ -27,12 +27,23 @@ $color: #F78280;
   border-radius:60rpx ;
   background-color: $color!important;
 }
+.color-fff {
+  color: #fff;
+}
+.flex-warp{
+  display: flex;
+}
+.flex-item{
+  flex: 1;
+}
 
 /*width*/
 .wpc50 {width: $width/2}
 .wpc50 {width: $width/5*3}
 
 /*font-size*/
+.f20 { font-size: 20rpx;}
+.f25 { font-size: 25rpx;}
 .f30 { font-size: 30rpx;}
 .f35 { font-size: 35rpx;}
 .f40 { font-size: 40rpx;}
@@ -65,6 +76,3 @@ $color: #F78280;
 .mt50 { margin-top: 50rpx;}
 .mt100 { margin-top: 100rpx;}
 
-.color-fff {
-  color: #fff;
-}

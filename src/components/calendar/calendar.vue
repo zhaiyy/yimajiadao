@@ -21,12 +21,12 @@
             </tr>
             <tr class="el-date-table__row flex-warp" v-for="(cur,curIndex) in currentMonthList" :key="curIndex">
               <td class="flex-item" v-for="(key,keyIndex) in cur"
-                  :class="classList(key)"
                   @click="dayClick(key)" :key="keyIndex"
               >
-                <div><span>{{key.value}}
-                    <span class="today" v-if="isCurrentMonth && key.value === nowDay">今天</span>
-                  </span></div>
+                <div>
+                  <span :class="{'date-current': key.type =='0' && key.value == currentDay }">{{key.value}}</span>
+                  <span class="today" v-if="isCurrentMonth && key.value === nowDay">今天</span>
+                </div>
               </td>
             </tr>
             </tbody>
@@ -167,9 +167,9 @@
       dayClick(key) {
         const { type, value } = key;
         this.currentDay = value;
-        if (type === -1) {
+        if (type === '-1') {
           this.prevMonth();
-        } else if (type === 1) {
+        } else if (type === '1') {
           this.nextMonth();
         }
         this.$emit('input', `${this.currentYear}-${this.currentMonth}-${this.currentDay}`);
@@ -216,20 +216,24 @@
         return curMonthDays;
       },
       touchStart(e) {
+        e.preventDefault();
         this.touchDotX = e.touches[0].pageX; // 获取触摸时的原点
         this.touchDotY = e.touches[0].pageY;
         // 使用js计时器记录时间
         this.interval = setInterval(() => {
           this.time++;
-        }, 100);
+        }, 200);
       },
       // 触摸结束事件
       touchEnd(e) {
+        if (this.time === 0) {
+          return;
+        }
         let touchMoveX = e.touches[0].pageX;
         let touchMoveY = e.touches[0].pageY;
         let tmX = touchMoveX - this.touchDotX;
         let tmY = touchMoveY - this.touchDotY;
-        if (this.time < 20) {
+        if (this.time < 50) {
           let absX = Math.abs(tmX);
           let absY = Math.abs(tmY);
           if (absX > 2 * absY) {
