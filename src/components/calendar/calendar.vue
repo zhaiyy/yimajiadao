@@ -1,25 +1,19 @@
 <template>
   <div @touchstart="touchStart" @touchmove="touchEnd" class="dib el-picker-panel el-date-picker el-popper"
        x-placement="bottom-start">
-    <div class="el-picker-panel__body-wrapper"><!---->
-      <div class="el-picker-panel__body"><!---->
-        <div class="el-date-picker__header">
-          <button type="button" aria-label="前一年"
-                  class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-d-arrow-left"
-                  @click="prevYear"></button>
-          <button type="button" aria-label="上个月"
-                  class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-arrow-left"
-                  @click="prevMonth"></button>
-          <span role="button" class="el-date-picker__header-label">{{currentYear}} 年</span>
-          <span role="button" class="el-date-picker__header-label">{{currentMonth}} 月</span>
-          <button type="button" aria-label="后一年"
-                  class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-d-arrow-right"
-                  @click="nextYear"></button>
-          <button type="button" aria-label="下个月"
-                  class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-arrow-right"
-                  @click="nextMonth"></button>
+    <div class="el-picker-panel__body-wrapper">
+      <div class="el-picker-panel__body">
+        <div class="el-date-picker__header flex-warp">
+          <button type="button" v-if="!isCurrentMonth"
+                  class="el-picker-panel__icon-btn back-today-btn"
+                  @click="backToday">回今天</button>
+          <span class="el-date-picker__header-label flex-item" >
+             <picker mode="date" :value="currentDate" start="1990-01-01" @change="bindDateChange">
+              {{currentYear}} 年{{currentMonth}} 月
+          </picker>
+          </span>
         </div>
-        <div class="el-picker-panel__content">
+        <div class="el-picker-panel__content ">
           <table cellspacing="0" cellpadding="0" class="el-date-table">
             <tbody>
             <tr class="flex-warp" style="flex-direction:row;">
@@ -30,15 +24,9 @@
                   :class="classList(key)"
                   @click="dayClick(key)" :key="keyIndex"
               >
-                <div><span>{{key.value}}</span></div>
-              </td>
-            </tr>
-            <tr animation="{{animation}}" class="el-date-table__row flex-warp" v-for="(cur,curIndex) in currentMonthList" :key="curIndex">
-              <td class="flex-item" v-for="(key,keyIndex) in cur"
-                  :class="classList(key)"
-                  @click="dayClick(key)" :key="keyIndex"
-              >
-                <div><span>{{key.value}}</span></div>
+                <div><span>{{key.value}}
+                    <span class="today" v-if="isCurrentMonth && key.value === nowDay">今天</span>
+                  </span></div>
               </td>
             </tr>
             </tbody>
@@ -70,7 +58,7 @@
         weekList: ['日', '一', '二', '三', '四', '五', '六'],
         currentYear: nowDate.getFullYear(),
         currentMonth: nowDate.getMonth() + 1,
-        currentDay: 0,
+        currentDay: nowDate.getDate(),
         prevMonthList: [],
         nextMonthList: [],
         touchDotX: 0,
@@ -111,9 +99,29 @@
       currentDate() {
         return `${this.currentYear}-${this.currentMonth}-${this.currentDay}`;
       },
+      nowDay() {
+        return new Date().getDate();
+      },
+      isCurrentMonth() {
+        const isYear = this.currentYear === new Date().getFullYear();
+        if (!isYear) {
+          return false;
+        }
+        const isMonth = this.currentMonth === new Date().getMonth() + 1;
+        if (!isMonth) {
+          return false;
+        }
+        return true;
+      },
 
     },
     methods: {
+      bindDateChange(e) {
+        const date = new Date(e.target.value);
+        this.currentYear = date.getFullYear();
+        this.currentMonth = date.getMonth() + 1;
+        this.currentDay = date.getDate();
+      },
       animation() {
         let animation = wx.createAnimation({
           duration: 3000,
@@ -127,7 +135,6 @@
           'prev-month': key.type === -1,
           available: key.type === 0,
           'next-month': key.type === 1,
-          today: this.isTodaty(key.value) && key.type === 0,
           current: this.isCurrent(key.value) && key.type === 0,
         };
         const classObj = Object.assign(obj);
@@ -167,10 +174,19 @@
         }
         this.$emit('input', `${this.currentYear}-${this.currentMonth}-${this.currentDay}`);
       },
-      isTodaty(day) {
-        const dayTimes = new Date(this.currentYear, this.currentMonth - 1, day).getTime();
-        const now = new Date(moment(new Date()).format('YYYY/MM/DD'));
-        const nowTimes = now.getTime();
+      backToday() {
+        const date = new Date();
+        this.currentYear = date.getFullYear();
+        this.currentMonth = date.getMonth() + 1;
+        this.currentDay = date.getDate();
+      },
+      isToday(val) {
+        const currentMonth = this.currentMonth + Number(val.type);
+        const day = moment(new Date(this.currentYear, currentMonth - 1, val.value)).format('YYYY/MM/DD');
+        const now = moment(new Date()).format('YYYY/MM/DD');
+        const dayTimes = new Date(day).getTime();
+        const nowTimes = new Date(now).getTime();
+        console.log(dayTimes === nowTimes);
         return dayTimes === nowTimes;
       },
       prevMonth() {

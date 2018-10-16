@@ -28,3 +28,21 @@
   color:#c0c4cc;
   cursor: not-allowed;
 }
+.today {
+  position: absolute;
+  color: #F56C6C;
+  top: 28rpx;
+}
+.date-picker {
+  margin: 0 auto;
+}
+.date-container {
+  width: 100%;
+  .date-item {
+    width: 100%;
+    float: left;
+  }
+}
+.back-today-btn{
+  position: absolute;
+}
