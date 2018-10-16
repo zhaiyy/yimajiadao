@@ -15,6 +15,7 @@ $color: #F78280;
   border-bottom-left-radius:  $width/3;
   border-bottom-right-radius:  $width/3;
 }
+
 .text-container {
   width: 100%;
   height: 100%;
@@ -29,6 +30,9 @@ $color: #F78280;
 }
 .color-fff {
   color: #fff;
+}
+.color-a4a {
+  color: #a4a4a4;
 }
 .flex-warp{
   display: flex;
@@ -63,11 +67,13 @@ $color: #F78280;
 .p8 { padding: 8rpx;}
 .p10 { padding: 10rpx;}
 .p20 { padding: 20rpx;}
+.pb20 { padding-bottom: 20rpx;}
 
 /*margin */
 .m5 { margin: 5rpx;}
 .m8 { margin: 8rpx;}
 .m10 { margin: 10rpx;}
+.m15 { margin: 15rpx;}
 .m20 { margin: 20rpx;}
 .mt5 { margin-top: 5rpx;}
 .mt8 { margin-top: 8rpx;}

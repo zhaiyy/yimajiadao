@@ -8,7 +8,9 @@
         {{key.text}}
       </li>
       <li class="f25 next-btn">
-        <span slot="button" size="mini">> </span>
+        <navigator url="/pages/explain/main" hover-class="navigator-hover">
+          <span slot="button" size="mini">> </span>
+        </navigator>
       </li>
     </ul>
   </div>
