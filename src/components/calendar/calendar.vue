@@ -24,8 +24,10 @@
                   @click="dayClick(key)" :key="keyIndex"
               >
                 <div>
-                  <span :class="{'date-current': key.type =='0' && key.value == currentDay }">{{key.value}}</span>
-                  <span class="today" v-if="isCurrentMonth && key.value === nowDay">今天</span>
+                  <span :class="{'date-current': key.type =='0' && key.value == currentDay }">
+                    <span class="today" v-if="isCurrentMonth && key.value === nowDay">今天</span>
+                    <span v-else>{{key.value}}</span>
+                  </span>
                 </div>
               </td>
             </tr>
