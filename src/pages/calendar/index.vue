@@ -43,29 +43,29 @@
 
 <style>
   .header {
-    height: 120 rpx;
-    line-height: 120 rpx;
+    height: 120rpx;
+    line-height: 120rpx;
     text-align: center;
     border-radius: unset;
   }
 
   .legend-icon {
     display: inline-block;
-    width: 20 rpx;
-    height: 20 rpx;
+    width: 20rpx;
+    height: 20rpx;
     border-radius: 50%;
   }
 
   .legend-container {
     color: #6f7180;
     background: #fff;
-    box-shadow: 5 rpx 5 rpx 5 rpx #bfbfbf;
-    padding: 10 rpx;
+    box-shadow: 5rpx 5rpx 5rpx #bfbfbf;
+    padding: 10rpx;
 
   }
 
   .next-btn {
-    width: 20 rpx;
-    padding-right: 5 rpx;
+    width: 20rpx;
+    padding-right: 5rpx;
   }
 </style>
