@@ -11,7 +11,7 @@
       <div class="weui-flex__item flex-left">
         <div  class="m10"> 2018年6月13日</div>
         <div class="m20 f30"> 农历四月三十</div>
-        <button size="mini" type="primary" class="m20 btn-primary">查看完整日历</button>
+        <button size="mini" type="primary" class="m20 btn-primary" @click="watchCalendar">查看完整日历</button>
       </div>
       <div class=" flex-right">
         <img class="mood-img" src="../../../static/img/mood/mood-1.png" mode="widthFix"/>
@@ -32,26 +32,22 @@
 </template>
 
 <script>
-import card from '@/components/card';
+import modal from '@/components/modal/modal'
 
 export default {
   data() {
     return {
       motto: 'Hello World',
-      userInfo: {},
-    };
+      userInfo: {}
+    }
   },
 
   components: {
-    card,
+    modal
   },
 
   methods: {
     switchChange() {
-    },
-    bindViewTap() {
-      const url = '../calendar/main';
-      wx.navigateTo({ url });
     },
     getUserInfo() {
       // 调用登录接口
@@ -59,22 +55,25 @@ export default {
         success: () => {
           wx.getUserInfo({
             success: (res) => {
-              this.userInfo = res.userInfo;
-            },
-          });
-        },
-      });
+              this.userInfo = res.userInfo
+            }
+          })
+        }
+      })
     },
     clickHandle(msg, ev) {
-      console.log('clickHandle:', msg, ev);
+      console.log('clickHandle:', msg, ev)
     },
+    watchCalendar() {
+      wx.switchTab({ url: '/pages/calendar/main' })
+    }
   },
 
   created() {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo();
-  },
-};
+    this.getUserInfo()
+  }
+}
 </script>
 
 <style scoped>

@@ -17,11 +17,11 @@
 </template>
 
 <script>
-  import Calendar from '@/components/calendar/calendar';
+  import Calendar from '@/components/calendar/calendar'
 
-  export default {
+export default {
     components: {
-      Calendar,
+      Calendar
     },
 
     data() {
@@ -32,15 +32,15 @@
           { text: '预测经期', color: '#f5989b' },
           { text: '安全期', color: '#0bb20c' },
           { text: '易孕期', color: '#b24aa6' },
-          { text: '排卵日', color: '#f5070b' },
-        ],
-      };
+          { text: '排卵日', color: '#f5070b' }
+        ]
+      }
     },
 
     created() {
 
-    },
-  };
+    }
+  }
 </script>
 
 <style>

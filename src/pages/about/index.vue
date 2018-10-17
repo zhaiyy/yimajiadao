@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       motto: 'Hello World',
-      userInfo: {},
-    };
+      userInfo: {}
+    }
   },
 
   components: {
@@ -35,8 +35,8 @@ export default {
     switchChange() {
     },
     bindViewTap() {
-      const url = '../calendar/main';
-      wx.navigateTo({ url });
+      const url = '../calendar/main'
+      wx.navigateTo({ url })
     },
     getUserInfo() {
       // 调用登录接口
@@ -44,23 +44,23 @@ export default {
         success: () => {
           wx.getUserInfo({
             success: (res) => {
-              console.log(res.userInfo);
-              this.userInfo = res.userInfo;
-            },
-          });
-        },
-      });
+              console.log(res.userInfo)
+              this.userInfo = res.userInfo
+            }
+          })
+        }
+      })
     },
     clickHandle(msg, ev) {
-      console.log('clickHandle:', msg, ev);
-    },
+      console.log('clickHandle:', msg, ev)
+    }
   },
 
   created() {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo();
-  },
-};
+    this.getUserInfo()
+  }
+}
 </script>
 
 <style scoped lang="scss">

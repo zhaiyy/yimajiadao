@@ -1,13 +1,13 @@
-import Vue from 'vue';
-import App from './App';
-import '../static/css/weui.css';
-import '../static/css/comment.scss';
+import Vue from 'vue'
+import App from './App'
+import '../static/css/weui.css'
+import '../static/css/comment.scss'
 
-Vue.config.productionTip = false;
-App.mpType = 'app';
+Vue.config.productionTip = false
+App.mpType = 'app'
 
-const app = new Vue(App);
-app.$mount();
+const app = new Vue(App)
+app.$mount()
 
 export default {
   // 这个字段走 app.json
@@ -18,7 +18,7 @@ export default {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: '女神月历',
-      navigationBarTextStyle: 'black',
+      navigationBarTextStyle: 'black'
     },
     tabBar: {
       color: '#999999',
