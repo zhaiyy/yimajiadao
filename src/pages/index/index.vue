@@ -28,6 +28,7 @@
         </div>
       </div>
     </div>
+    <modal></modal>
   </div>
 </template>
 

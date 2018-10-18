@@ -12,23 +12,27 @@
       </div>
     </div>
     <div class="tc mt100">
-      <div class="about-btn">资料设置</div>
+      <div class="about-btn" @click="isShowModal = true">资料设置</div>
       <div class="about-btn">经期记录</div>
     </div>
+    <modal :isShowModal="isShowModal"></modal>
   </div>
 </template>
 
 <script>
+import modal from '@/components/modal/modal'
 
 export default {
   data() {
     return {
       motto: 'Hello World',
-      userInfo: {}
+      userInfo: {},
+      isShowModal: false
     }
   },
 
   components: {
+    modal
   },
 
   methods: {
