@@ -15,7 +15,7 @@
       <div class="about-btn" @click="isShowModal = true">资料设置</div>
       <div class="about-btn">经期记录</div>
     </div>
-    <modal :isShowModal="isShowModal"></modal>
+    <modal :isShowModal="isShowModal" @updateShowModal="updateShowModal"></modal>
   </div>
 </template>
 
@@ -41,6 +41,9 @@ export default {
     bindViewTap() {
       const url = '../calendar/main'
       wx.navigateTo({ url })
+    },
+    updateShowModal(val) {
+      this.isShowModal = val
     },
     getUserInfo() {
       // 调用登录接口

@@ -1,6 +1,9 @@
 <template>
-  <view class='mask'  bindtap='clickMask' v-if="isShowModal" @click="maskEvent">
+  <view class='mask'  bindtap='clickMask' v-if="isShowModal">
     <view class='modal-content'>
+      <div class="ud-cancel-btn">
+        <icon type="cancel" size="20" color="#FFF" @click="maskEvent"/>
+      </div>
       <div class="header">请设置您的经期数据</div>
       <div class="form-container">
         <div class="ud-container">
@@ -18,7 +21,7 @@
           </picker>
         </div>
       </div>
-      <view class='modal-btn-wrapper'>
+      <view class='modal-btn-wrapper' id="modal-btn-wrapper">
         <icon type="success" size="40" color="#FFF" @click="ensureBtn"/>
       </view>
     </view>
@@ -45,18 +48,15 @@
     },
     watch: {
       isShowModal(val) {
-        console.log(val)
-        this.$emit('isShowModal', this.isShowModal)
+        this.$emit('updateShowModal', val)
       }
     },
     methods: {
       ensureBtn() {
         this.isShowModal = false
       },
-      maskEvent(e) {
-        console.log(e)
+      maskEvent() {
         this.isShowModal = !this.isShowModal
-        console.log(e.target)
       }
     }
 
