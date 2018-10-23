@@ -14,7 +14,7 @@
         <button size="mini" type="primary" class="m20 btn-primary" @click="watchCalendar">查看完整日历</button>
       </div>
       <div class=" flex-right">
-        <img class="mood-img" src="../../../static/img/mood/mood-1.png" mode="widthFix"/>
+        <img class="mood-img" src="https://7a79-zyy-874de5-1254209441.tcb.qcloud.la/mood/mood-3.png" mode="widthFix"/>
       </div>
     </div>
     <div class="weui-flex mt50">
